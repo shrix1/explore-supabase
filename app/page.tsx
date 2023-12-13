@@ -5,6 +5,7 @@ import Link from "next/link"
 // export const revalidate = 60 // isr = 60 || ssr = 0 (nextjs specific)
 
 export default async function Home() {
+  // Enable basic RLS policy to fetch data from Supabase
   const { data } = await supabase.from("explore").select("*")
 
   return (

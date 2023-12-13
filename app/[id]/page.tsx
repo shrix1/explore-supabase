@@ -1,6 +1,7 @@
 import supabase from "@/components/supabase"
 import { notFound } from "next/navigation"
 import React from "react"
+import ClientCompforRealtimeSubcription from "./ClientCompforRealtimeSubcription"
 
 const Page = async ({ params: { id } }: { params: { id: string } }) => {
   const { data } = await supabase
@@ -15,9 +16,15 @@ const Page = async ({ params: { id } }: { params: { id: string } }) => {
 
   return (
     <div className="text-2xl flex justify-center items-center h-screen">
-      <h1 className="hover:bg-sky-500 hover:text-black p-2">{data.name}</h1>
+      <ClientCompforRealtimeSubcription data={data} />
     </div>
   )
 }
 
 export default Page
+
+// for realtime subcription we need to use client to run some function so heres how
+// -> create a component make it as "use client"
+// -> write the supabase subscription code in useEffect
+// -> dont forgot to enable REALTIME SUBSCRIPTION FOR THE SPECFIC TABLE in supabase
+// -> check ClientCompforRealtimeSubcription.tsx file on how to write it
