@@ -3,6 +3,8 @@ import { notFound } from "next/navigation"
 import React from "react"
 import ClientCompforRealtimeSubcription from "./ClientCompforRealtimeSubcription"
 
+export const revalidate = 0
+
 const Page = async ({ params: { id } }: { params: { id: string } }) => {
   const { data } = await supabase
     .from("explore")
