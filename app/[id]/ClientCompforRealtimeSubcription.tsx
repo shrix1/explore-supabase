@@ -1,6 +1,9 @@
 "use client"
 import supabase from "@/components/supabase"
-import { RealtimePostgresChangesPayload } from "@supabase/supabase-js"
+import {
+  RealtimePostgresChangesPayload,
+  REALTIME_LISTEN_TYPES,
+} from "@supabase/supabase-js"
 import React, { useEffect, useState } from "react"
 
 type TData = {
@@ -16,7 +19,8 @@ const ClientCompforRealtimeSubcription = ({ data }: { data: TData }) => {
     const realtimeData = supabase
       .channel("realtime_data_updates") // Name it whatever you want but it should be **unique**
       .on(
-        "postgres_changes", // we are using postgres so i added this .your doing insert operation you can add INSERT
+        // @ts-expect-error
+        REALTIME_LISTEN_TYPES.POSTGRES_CHANGES, // we are using postgres so i added this .your doing insert operation you can add INSERT
         {
           event: "UPDATE", // INSERT DELETE or ["INSERT", "DELETE" , "UPDATE"]
           scheme: "public", // scheme type
