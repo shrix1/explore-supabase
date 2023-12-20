@@ -70,9 +70,12 @@ const TodoList = ({ data }: { data: TTodo[] }) => {
 
   if (todoData.length === 0) {
     return (
-      <h3 className="text-center py-10">
-        📝 <span className="opacity-60">Add todo</span>
-      </h3>
+      <>
+        <AddTodo setTodoData={setTodoData} />
+        <h3 className="text-center py-10">
+          📝 <span className="opacity-60">Add todo</span>
+        </h3>
+      </>
     )
   }
 
