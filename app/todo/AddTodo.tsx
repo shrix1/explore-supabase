@@ -27,18 +27,18 @@ const AddTodo = ({
   }
 
   return (
-    <form className="flex flex-col gap-2 w-[300px]" onSubmit={handleSubmit}>
+    <form className="flex flex-col gap-2 w-[360px]" onSubmit={handleSubmit}>
       <input
         type="text"
         autoComplete="off"
         required
         ref={inputRef}
         placeholder="Do 1% everyday"
-        className="p-2 w-full rounded-sm bg-white/30 backdrop-blur-sm focus-visible:outline-none"
+        className="p-2 w-full rounded-md bg-white/40 backdrop-blur-sm focus-visible:outline-none"
       />
       <button
         type="button"
-        className="px-3 py-1 font-bold rounded-sm bg-sky-400 text-black"
+        className="px-3 py-2 w-full font-bold rounded-md bg-sky-400 text-black"
       >
         Add
       </button>

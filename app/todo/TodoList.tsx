@@ -80,16 +80,18 @@ const TodoList = ({ data }: { data: TTodo[] }) => {
   }
 
   return (
-    <>
-      <AddTodo setTodoData={setTodoData} />
-      <ul className="py-4 flex gap-1 flex-col">
+    <main className="flex justify-center item-center flex-col w-[400px]">
+      <div className="flex justify-center item-center">
+        <AddTodo setTodoData={setTodoData} />
+      </div>
+      <ul className="py-4 flex gap-2 flex-col w-full">
         {todoData.map((t) => {
           return (
             <li
               key={t.id}
               className={`group ${
-                t.completed ? "bg-green-400/50" : "bg-white/30"
-              } backdrop-blur-md rounded-sm flex justify-between`}
+                t.completed ? "bg-green-400/50" : "bg-white/40"
+              } backdrop-blur-md rounded-md flex justify-between`}
             >
               {editId === t.id ? (
                 <form
@@ -123,7 +125,7 @@ const TodoList = ({ data }: { data: TTodo[] }) => {
                         setEditId(t.id)
                       }}
                     >
-                      ✏️
+                      🖋️
                     </button>
                     <button
                       className="px-2 hover:bg-white/20"
@@ -144,7 +146,7 @@ const TodoList = ({ data }: { data: TTodo[] }) => {
           )
         })}
       </ul>
-    </>
+    </main>
   )
 }
 

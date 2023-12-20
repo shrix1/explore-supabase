@@ -1,6 +1,5 @@
 import React from "react"
 import TodoList, { TTodo } from "./TodoList"
-import AddTodo from "./AddTodo"
 import supabase from "@/components/supabase"
 
 export const revalidate = 0
@@ -15,7 +14,7 @@ const Page = async () => {
 
   return (
     <div className="w-full h-screen grid place-content-center">
-      <h1 className="py-2 text-center text-xl">TODO</h1>
+      <h1 className="py-2 text-center text-2xl">Todo List</h1>
       <TodoList data={data} />
     </div>
   )
