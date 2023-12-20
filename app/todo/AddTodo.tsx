@@ -2,17 +2,23 @@
 import React, { useRef } from "react"
 import { createTodo } from "./actions"
 import { toast } from "sonner"
+import { TTodo } from "./TodoList"
 
-const AddTodo = () => {
+const AddTodo = ({
+  setTodoData,
+}: {
+  setTodoData: React.Dispatch<React.SetStateAction<TTodo[]>>
+}) => {
   const inputRef = useRef<HTMLInputElement>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (inputRef.current) {
       const todo = inputRef.current.value
-      const res = await createTodo(todo)
-      if (res.status === 201) {
+      const { data } = await createTodo(todo)
+      if (data) {
         toast.success(`${todo} Added`)
+        setTodoData((prev) => [...prev, data])
         inputRef.current.value = ""
       } else {
         toast.error("Error Added Todo")

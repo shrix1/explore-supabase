@@ -16,7 +16,6 @@ const Page = async () => {
   return (
     <div className="w-full h-screen grid place-content-center">
       <h1 className="py-2 text-center text-xl">TODO</h1>
-      <AddTodo />
       <TodoList data={data} />
     </div>
   )
