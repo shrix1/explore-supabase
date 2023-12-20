@@ -20,7 +20,7 @@ const ClientCompforRealtimeSubcription = ({ data }: { data: TData }) => {
       .channel("realtime_data_updates") // Name it whatever you want but it should be **unique**
       .on(
         // @ts-expect-error
-        REALTIME_LISTEN_TYPES.POSTGRES_CHANGES, // we are using postgres so i added this .your doing insert operation you can add INSERT
+        REALTIME_LISTEN_TYPES.POSTGRES_CHANGES, // we are using postgres operation so i added this .your doing insert operation you can add INSERT
         {
           event: "UPDATE", // INSERT DELETE or ["INSERT", "DELETE" , "UPDATE"]
           scheme: "public", // scheme type
