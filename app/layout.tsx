@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
 import "./globals.css"
+import { Toaster } from "sonner"
 
 const pop = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "800"],
@@ -19,7 +20,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={pop.className + "bg-black text-white"}>{children}</body>
+      <body className={pop.className + "bg-black text-white"}>
+        {children}
+        <Toaster position="top-right" />
+      </body>
     </html>
   )
 }
